@@ -1,0 +1,4 @@
+co.elastic.apm.agent.wildfly_remote_ejb.RemoteEJBClientInstrumentation
+co.elastic.apm.agent.wildfly_remote_ejb.RemoteEJBClientPropagationInstrumentation
+co.elastic.apm.agent.wildfly_remote_ejb.RemoteEJBClientDestinationInstrumentation
+co.elastic.apm.agent.wildfly_remote_ejb.RemoteEJBServerInstrumentation
