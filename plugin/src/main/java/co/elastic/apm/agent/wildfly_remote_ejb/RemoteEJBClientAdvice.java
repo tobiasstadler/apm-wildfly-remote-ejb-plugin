@@ -34,7 +34,7 @@ public class RemoteEJBClientAdvice {
             return null;
         }
 
-        Span span = parent.startSpan("external", "ejb", "call")
+        Span span = parent.startExitSpan("external", "ejb", "call")
                 .setName("Call " + locatorRef.get().getViewType().getSimpleName() + "#" + method.getName());
 
         return span.activate();
