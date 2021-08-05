@@ -33,4 +33,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           draft: false
           tag: ${{ env.GIT_TAG }}
-          artifacts: target/checkout/plugin/target/apm-wildfly-ejb-plugin-*.jar
+          artifacts: target/checkout/plugin/target/apm-wildfly-remote-ejb-plugin-*.jar
