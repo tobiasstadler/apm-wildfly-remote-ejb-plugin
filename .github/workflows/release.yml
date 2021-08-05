@@ -27,10 +27,16 @@ jobs:
       - name: Perform Maven Release
         run: |
           ./mvnw -B release:perform -Dusername=${{ github.actor }} -Dpassword=${{ secrets.GITHUB_TOKEN }} -Dgoals=package -Darguments='-Dmaven.javadoc.skip'
+      - name: Sign Artifacts
+        run: |
+          echo -e "${{ secrets.GPG_SECRET_KEY }}" | gpg --batch --import
+          for file in target/checkout/plugin/target/apm-wildfly-remote-ejb-plugin-*.jar; do
+            gpg --batch --pinentry-mode loopback --passphrase "${{ secrets.GPG_SECRET_KEY_PASSPHRASE }}" --output $file.sig --sign $file
+          done
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           draft: false
           tag: ${{ env.GIT_TAG }}
-          artifacts: target/checkout/plugin/target/apm-wildfly-remote-ejb-plugin-*.jar
+          artifacts: target/checkout/plugin/target/apm-wildfly-remote-ejb-plugin-*.jar,target/checkout/plugin/target/apm-wildfly-remote-ejb-plugin-*.jar.sig
