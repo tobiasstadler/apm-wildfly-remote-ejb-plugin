@@ -34,8 +34,6 @@ public class RemoteEJBServerAdvice {
                 .setName(componentView.getViewClass().getSimpleName() + "#" + method.getName())
                 .setFrameworkName("EJB");
 
-        System.out.println("Set ");
-
         return transaction.activate();
     }
 
