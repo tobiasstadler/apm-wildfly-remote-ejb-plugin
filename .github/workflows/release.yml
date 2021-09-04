@@ -12,10 +12,7 @@ jobs:
         with:
           distribution: adopt
           java-version: '8'
-      - uses: actions/cache@v2
-        with:
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          path: ~/.m2/repository
+          cache: 'maven'
       - name: Prepare Maven Release
         run: |
           git config user.name github-actions

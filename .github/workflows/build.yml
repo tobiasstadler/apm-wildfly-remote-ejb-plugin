@@ -21,9 +21,6 @@ jobs:
         with:
           distribution: adopt
           java-version: ${{ matrix.java }}
-      - uses: actions/cache@v2
-        with:
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          path: ~/.m2/repository
+          cache: 'maven'
       - run: |
           ./mvnw -B verify
