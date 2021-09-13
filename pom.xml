@@ -19,8 +19,8 @@
         <url>https://github.com/tobiasstadler/apm-wildfly-remote-ejb-plugin</url>
         <connection>scm:git:https://github.com/tobiasstadler/apm-wildfly-remote-ejb-plugin.git</connection>
         <developerConnection>scm:git:https://github.com/tobiasstadler/apm-wildfly-remote-ejb-plugin.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
