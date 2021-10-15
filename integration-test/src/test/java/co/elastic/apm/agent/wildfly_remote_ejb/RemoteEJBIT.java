@@ -91,7 +91,7 @@ class RemoteEJBIT {
                 "--include-all",
                 "--config", "server_url=http://apm-server:1080",
                 "--config", "report_sync=true",
-                "--config", "disable_metrics=true",
+                "--config", "disable_metrics=*",
                 "--config", "plugins_dir=/opt/jboss/wildfly/apm-plugins",
                 "--config", "application_packages=co.elastic.apm.agent.wildfly_remote_ejb",
                 "--config", "classes_excluded_from_instrumentation_default=(?-i)org.infinispan*,(?-i)org.apache.xerces*,(?-i)io.undertow.core*,(?-i)org.eclipse.jdt.ecj*,(?-i)org.wildfly.extension.*,(?-i)org.wildfly.security*"
@@ -100,7 +100,7 @@ class RemoteEJBIT {
         Map<String, String> configuration = new HashMap<>();
         configuration.put("server_url", "http://" + MOCK_SERVER.getContainerIpAddress() + ":" + MOCK_SERVER.getMappedPort(1080));
         configuration.put("report_sync", "true");
-        configuration.put("disable_metrics", "true");
+        configuration.put("disable_metrics", "*");
         configuration.put("plugins_dir", "target/apm-plugins");
         configuration.put("application_packages", "co.elastic.apm.agent.wildfly_remote_ejb");
 
