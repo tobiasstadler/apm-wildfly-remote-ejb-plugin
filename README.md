@@ -7,6 +7,7 @@ An Elastic APM agent plugin for instrumenting remote EJB invocations on a WildFl
 | Plugin | Elastic APM Agent | WildFly |
 | :--- | :--- | :--- |
 | 1.0+ | 1.25.0+ | 11.0.0 |
+| 2.0+ | 1.27.0+ | 11.0.0 |
 
 ## Installation
 
