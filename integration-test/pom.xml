@@ -86,7 +86,7 @@
                                 <artifactItem>
                                     <groupId>co.elastic.apm</groupId>
                                     <artifactId>apm-agent-attach-cli</artifactId>
-                                    <version>1.27.0</version>
+                                    <version>1.27.1</version>
                                 </artifactItem>
                             </artifactItems>
                             <outputDirectory>target</outputDirectory>
