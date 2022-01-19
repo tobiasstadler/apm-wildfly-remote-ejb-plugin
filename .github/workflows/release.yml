@@ -28,7 +28,7 @@ jobs:
         run: |
           echo -e "${{ secrets.GPG_SECRET_KEY }}" | gpg --batch --import
           for file in target/checkout/plugin/target/apm-wildfly-remote-ejb-plugin-*.jar; do
-            gpg --batch --pinentry-mode loopback --passphrase "${{ secrets.GPG_SECRET_KEY_PASSPHRASE }}" --output $file.sig --sign $file
+            gpg --batch --pinentry-mode loopback --passphrase "${{ secrets.GPG_SECRET_KEY_PASSPHRASE }}" --output $file.sig --sign --detach-sig $file
           done
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
