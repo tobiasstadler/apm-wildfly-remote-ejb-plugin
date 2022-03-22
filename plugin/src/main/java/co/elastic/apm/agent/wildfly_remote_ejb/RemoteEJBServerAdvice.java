@@ -30,6 +30,7 @@ public class RemoteEJBServerAdvice {
     @Advice.OnMethodEnter(suppress = Throwable.class, inline = false)
     public static Object onEnterInvokeMethod(@Advice.Argument(0) ComponentView componentView, @Advice.Argument(1) Method method, @Advice.Argument(3) InvocationRequest.Resolved invocationRequest) {
         Transaction transaction = ElasticApm.startTransactionWithRemoteParent(new MapTextHeaderAccessor(invocationRequest.getAttachments()))
+                .useServiceInfoForClassLoader(componentView.getViewClass().getClassLoader())
                 .setType(Transaction.TYPE_REQUEST)
                 .setName(componentView.getViewClass().getSimpleName() + "#" + method.getName())
                 .setFrameworkName("EJB");
