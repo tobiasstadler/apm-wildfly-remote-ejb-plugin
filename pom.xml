@@ -43,7 +43,7 @@
             <dependency>
                 <groupId>co.elastic.apm</groupId>
                 <artifactId>apm-agent-plugin-sdk</artifactId>
-                <version>1.31.0</version>
+                <version>1.32.0</version>
             </dependency>
             <dependency>
                 <groupId>com.jayway.jsonpath</groupId>
