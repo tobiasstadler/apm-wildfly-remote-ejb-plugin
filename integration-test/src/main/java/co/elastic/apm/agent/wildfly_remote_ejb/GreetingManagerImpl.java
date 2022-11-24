@@ -15,7 +15,7 @@
  */
 package co.elastic.apm.agent.wildfly_remote_ejb;
 
-import javax.ejb.Stateless;
+import jakarta.ejb.Stateless;
 
 @Stateless
 public class GreetingManagerImpl implements GreetingManager {

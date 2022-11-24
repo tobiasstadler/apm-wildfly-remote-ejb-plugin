@@ -67,7 +67,7 @@ class RemoteEJBIT {
             .waitingFor(Wait.forHttp("/mockserver/status").withMethod("PUT").forStatusCode(200));
 
     @Container
-    private static final GenericContainer<?> WILDFLY = new GenericContainer<>(DockerImageName.parse("quay.io/wildfly/wildfly:26.1.2.Final"))
+    private static final GenericContainer<?> WILDFLY = new GenericContainer<>(DockerImageName.parse("quay.io/wildfly/wildfly:27.0.0.Final-jdk11"))
             .withNetwork(NETWORK)
             .withExposedPorts(8080)
             .withFileSystemBind("target/test-classes/application-users.properties", "/opt/jboss/wildfly/standalone/configuration/application-users.properties")

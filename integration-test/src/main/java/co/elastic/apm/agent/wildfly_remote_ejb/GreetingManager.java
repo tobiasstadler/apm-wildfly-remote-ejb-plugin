@@ -15,7 +15,7 @@
  */
 package co.elastic.apm.agent.wildfly_remote_ejb;
 
-import javax.ejb.Remote;
+import jakarta.ejb.Remote;
 
 @Remote
 public interface GreetingManager {
