@@ -60,7 +60,7 @@ class RemoteEJBIT {
     private static final Network NETWORK = Network.newNetwork();
 
     @Container
-    private static final GenericContainer<?> MOCK_SERVER = new GenericContainer<>(DockerImageName.parse("mockserver/mockserver:mockserver-5.14.0"))
+    private static final GenericContainer<?> MOCK_SERVER = new GenericContainer<>(DockerImageName.parse("mockserver/mockserver:mockserver-5.15.0"))
             .withNetwork(NETWORK)
             .withNetworkAliases("apm-server")
             .withExposedPorts(1080)
