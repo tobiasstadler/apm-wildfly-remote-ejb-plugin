@@ -81,7 +81,7 @@
                 <groupId>org.wildfly</groupId>
                 <artifactId>wildfly-ejb-client-bom</artifactId>
                 <type>pom</type>
-                <version>30.0.0.Final</version>
+                <version>30.0.1.Final</version>
             </dependency>
             <dependency>
                 <groupId>org.wildfly</groupId>
