@@ -86,7 +86,7 @@
             <dependency>
                 <groupId>org.wildfly</groupId>
                 <artifactId>wildfly-ejb3</artifactId>
-                <version>34.0.1.Final</version>
+                <version>35.0.1.Final</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
