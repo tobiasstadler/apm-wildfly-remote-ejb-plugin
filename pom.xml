@@ -26,6 +26,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <elastic.apm.agent.version>1.55.2</elastic.apm.agent.version>
+        <wildfly.ejb.version>38.0.1.Final</wildfly.ejb.version>
     </properties>
 
     <dependencyManagement>
@@ -33,17 +35,17 @@
             <dependency>
                 <groupId>co.elastic.apm</groupId>
                 <artifactId>apm-agent-api</artifactId>
-                <version>1.55.2</version>
+                <version>${elastic.apm.agent.version}</version>
             </dependency>
             <dependency>
                 <groupId>co.elastic.apm</groupId>
                 <artifactId>apm-agent-attach</artifactId>
-                <version>1.55.2</version>
+                <version>${elastic.apm.agent.version}</version>
             </dependency>
             <dependency>
                 <groupId>co.elastic.apm</groupId>
                 <artifactId>apm-agent-plugin-sdk</artifactId>
-                <version>1.55.2</version>
+                <version>${elastic.apm.agent.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.jayway.jsonpath</groupId>
@@ -81,12 +83,12 @@
                 <groupId>org.wildfly</groupId>
                 <artifactId>wildfly-ejb-client-bom</artifactId>
                 <type>pom</type>
-                <version>38.0.1.Final</version>
+                <version>${wildfly.ejb.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.wildfly</groupId>
                 <artifactId>wildfly-ejb3</artifactId>
-                <version>38.0.1.Final</version>
+                <version>${wildfly.ejb.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
