@@ -47,9 +47,9 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockserver.model.HttpRequest.request;
 import static org.mockserver.model.HttpResponse.response;
 import static org.mockserver.model.JsonBody.json;
@@ -194,21 +194,21 @@ class RemoteEJBIT {
 
     private static void assertServerTransaction(Map<String, Object> transaction, String traceId, String parentId, String outcome) {
         assertAll(
-                () -> assertEquals("trace_id", traceId, JsonPath.read(transaction, "$.trace_id")),
-                () -> assertEquals("parent_id", parentId, JsonPath.read(transaction, "$.parent_id")),
-                () -> assertEquals("type", "request", JsonPath.read(transaction, "$.type")),
-                () -> assertEquals("context.service.framework.name", "EJB", JsonPath.read(transaction, "$.context.service.framework.name")),
-                () -> assertEquals("outcome", outcome, JsonPath.read(transaction, "$.outcome"))
+                () -> assertEquals(traceId, JsonPath.read(transaction, "$.trace_id"), "trace_id"),
+                () -> assertEquals(parentId, JsonPath.read(transaction, "$.parent_id"), "parent_id"),
+                () -> assertEquals("request", JsonPath.read(transaction, "$.type"), "type"),
+                () -> assertEquals("EJB", JsonPath.read(transaction, "$.context.service.framework.name"), "context.service.framework.name"),
+                () -> assertEquals(outcome, JsonPath.read(transaction, "$.outcome"), "outcome")
         );
     }
 
     private static void assertClientSpan(Map<String, Object> span, String outcome) {
         assertAll(
-                () -> assertEquals("type", "external.ejb.call", JsonPath.read(span, "$.type")),
-                () -> assertEquals("context.destination.address", WILDFLY.getContainerIpAddress(), JsonPath.read(span, "$.context.destination.address")),
-                () -> assertEquals("context.destination.port", WILDFLY.getMappedPort(8080), JsonPath.read(span, "$.context.destination.port")),
-                () -> assertEquals("context.destination.service.resource", WILDFLY.getContainerIpAddress() + ":" + WILDFLY.getMappedPort(8080), JsonPath.read(span, "$.context.destination.service.resource")),
-                () -> assertEquals("outcome", outcome, JsonPath.read(span, "$.outcome"))
+                () -> assertEquals("external.ejb.call", JsonPath.read(span, "$.type"), "type"),
+                () -> assertEquals(WILDFLY.getContainerIpAddress(), JsonPath.read(span, "$.context.destination.address"), "context.destination.address"),
+                () -> assertEquals(WILDFLY.getMappedPort(8080), JsonPath.read(span, "$.context.destination.port"), "context.destination.port"),
+                () -> assertEquals(WILDFLY.getContainerIpAddress() + ":" + WILDFLY.getMappedPort(8080), JsonPath.read(span, "$.context.destination.service.resource"), "context.destination.service.resource"),
+                () -> assertEquals(outcome, JsonPath.read(span, "$.outcome"), "outcome")
         );
     }
 
@@ -223,7 +223,7 @@ class RemoteEJBIT {
             }
         }
 
-        assertTrue("client error not found", clientErrorFound);
-        assertTrue("server error not found", serverErrorFound);
+        assertTrue(clientErrorFound, "client error not found");
+        assertTrue(serverErrorFound, "server error not found");
     }
 }
