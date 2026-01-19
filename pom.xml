@@ -26,7 +26,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <elastic.apm.agent.version>1.55.2</elastic.apm.agent.version>
+        <elastic.apm.agent.version>1.55.3</elastic.apm.agent.version>
         <wildfly.ejb.version>39.0.0.Final</wildfly.ejb.version>
     </properties>
 
